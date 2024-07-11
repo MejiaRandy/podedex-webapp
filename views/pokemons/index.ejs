@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+<h1>Pokemons</h1>
+<a href="/pokemons/create" class="btn btn-primary">Add Pokemon</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Type</th>
+      <th>Region</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% pokemons.forEach(pokemon => { %>
+      <tr>
+        <td><%= pokemon.name %></td>
+        <td><img src="<%= pokemon.image %>" alt="<%= pokemon.name %>"></td>
+        <td><%= pokemon.Type.name %></td>
+        <td><%= pokemon.Region.name %></td>
+        <td>
+          <a href="/pokemons/edit/<%= pokemon.id %>" class="btn btn-secondary">Edit</a>
+          <a href="/pokemons/delete/<%= pokemon.id %>" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+<% include ../partials/footer %>
