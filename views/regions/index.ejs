@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+<h1>Regions</h1>
+<a href="/regions/create" class="btn btn-primary">Add Region</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% regions.forEach(region => { %>
+      <tr>
+        <td><%= region.name %></td>
+        <td>
+          <a href="/regions/edit/<%= region.id %>" class="btn btn-secondary">Edit</a>
+          <a href="/regions/delete/<%= region.id %>" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+<%- include('../partials/footer') %>

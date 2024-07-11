@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+<h1>Types</h1>
+<a href="/types/create" class="btn btn-primary">Add Type</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% types.forEach(type => { %>
+      <tr>
+        <td><%= type.name %></td>
+        <td>
+          <a href="/types/edit/<%= type.id %>" class="btn btn-secondary">Edit</a>
+          <a href="/types/delete/<%= type.id %>" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+<%- include('../partials/footer') %>

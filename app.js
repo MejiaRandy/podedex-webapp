@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const { sequelize } = require('./models');
 const pokemonRoutes = require('./routes/pokemonRoutes');
+const regionRoutes = require('./routes/regionRoutes');
+const typeRoutes = require('./routes/typeRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -15,6 +17,8 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/pokemons', pokemonRoutes);
+app.use('/regions', regionRoutes);
+app.use('/types', typeRoutes);
 
 app.get('/', (req, res) => {
   res.redirect('/pokemons');
