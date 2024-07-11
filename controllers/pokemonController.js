@@ -15,5 +15,3 @@ exports.storePokemon = async (req, res) => {
   await Pokemon.create(req.body);
   res.redirect('/pokemons');
 };
-
-// Similar functions for edit, update, delete
