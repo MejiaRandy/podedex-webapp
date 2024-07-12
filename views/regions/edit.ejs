@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+<h1>Edit Region</h1>
+<form action="/regions/update/<%= region.id %>" method="post">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" class="form-control" value="<%= region.name %>" required>
+  </div>
+  <button type="submit" class="btn btn-success">Update</button>
+  <a href="/regions" class="btn btn-secondary">Back</a>
+</form>
+<%- include('../partials/footer') %>

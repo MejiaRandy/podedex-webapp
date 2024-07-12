@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+<h1>Edit Pokemon</h1>
+<form action="/pokemons/update/<%= pokemon.id %>" method="post">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" class="form-control" value="<%= pokemon.name %>" required>
+  </div>
+  <div class="form-group">
+    <label for="image">Image URL</label>
+    <input type="text" id="image" name="image" class="form-control" value="<%= pokemon.image %>" required>
+  </div>
+  <div class="form-group">
+    <label for="region">Region</label>
+    <select id="region" name="regionId" class="form-control" required>
+      <% regions.forEach(region => { %>
+        <option value="<%= region.id %>" <%= pokemon.regionId === region.id ? 'selected' : '' %>><%= region.name %></option>
+      <% }); %>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="type">Type</label>
+    <select id="type" name="typeId" class="form-control" required>
+      <% types.forEach(type => { %>
+        <option value="<%= type.id %>" <%= pokemon.typeId === type.id ? 'selected' : '' %>><%= type.name %></option>
+      <% }); %>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-success">Update</button>
+  <a href="/pokemons" class="btn btn-secondary">Back</a>
+</form>
+<%- include('../partials/footer') %>

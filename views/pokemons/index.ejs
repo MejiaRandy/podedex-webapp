@@ -16,8 +16,8 @@
       <tr>
         <td><%= pokemon.name %></td>
         <td><img src="<%= pokemon.image %>" alt="<%= pokemon.name %>" width="50"></td>
-        <td><%= pokemon.Type.name %></td>
-        <td><%= pokemon.Region.name %></td>
+        <td><%= pokemon.Type ? pokemon.Type.name : 'N/A' %></td>
+        <td><%= pokemon.Region ? pokemon.Region.name : 'N/A' %></td>
         <td>
           <a href="/pokemons/edit/<%= pokemon.id %>" class="btn btn-secondary">Edit</a>
           <a href="/pokemons/delete/<%= pokemon.id %>" class="btn btn-danger">Delete</a>
@@ -27,4 +27,3 @@
   </tbody>
 </table>
 <%- include('../partials/footer') %>
-
